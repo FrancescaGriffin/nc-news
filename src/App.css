@@ -1,6 +1,33 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content min-content auto;
+  grid-template-areas:'header' 'navbar' 'main';
 }
+
+.header {
+  border: solid orangered 1px;
+  grid-area: header;
+}
+
+.navbar {
+  border: solid blue 1px;
+  grid-area: navbar;
+}
+
+.homepage {
+  border: solid rgb(0, 107, 9) 1px;
+  grid-area: main;
+}
+
+.articles {
+  border: solid darkmagenta 1px;
+  grid-area: main;
+}
+
+
 
 
 /* .App-header {
