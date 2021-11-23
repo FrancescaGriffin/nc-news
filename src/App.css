@@ -17,14 +17,19 @@
   grid-area: navbar;
 }
 
-.homepage {
-  border: solid rgb(0, 107, 9) 1px;
-  grid-area: main;
-}
-
 .articles {
   border: solid darkmagenta 1px;
   grid-area: main;
+}
+
+.singlearticle {
+  border:rgb(255, 0, 0) solid 1px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+
 }
 
 

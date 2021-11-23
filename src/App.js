@@ -1,10 +1,8 @@
 import './App.css';
-import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Header from './Components/Header';
 import NavBar from './Components/Nav';
-import HomePage from './Pages/HomePage';
 import Articles from './Components/Articles';
 
 function App() {
