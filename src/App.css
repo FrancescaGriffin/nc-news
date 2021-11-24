@@ -26,10 +26,18 @@
   border:rgb(255, 0, 0) solid 1px;
 }
 
+.articleByID {
+  border:goldenrod solid 1px;
+}
+
+.singlecomment {
+  border:darkgreen solid 1px;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0;
-
+  margin-top: 0;
 }
 
 
