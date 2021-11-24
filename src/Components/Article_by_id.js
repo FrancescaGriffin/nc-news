@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { getArticleById } from "../Utils/api";
 import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
+import NewVotes from "./NewVotes";
 
 const ArticleById = () => {
 
@@ -32,10 +33,11 @@ const ArticleById = () => {
                 <li>Topic:{article.topic}</li>
                 <li>{article.body}</li>
                 <li>Date submitted: {article.created_at}</li>
-                <li>Votes: {article.votes}</li>
+                {/* <li>Votes: {article.votes}</li> */}
                 <li>Comments: {article.comment_count}</li>
             </ul>
             <Link to={`/articles/${article.topic}/${article.article_id}/comments`}><button type="button">View Comments</button></Link> 
+            <NewVotes id={id} articleVotes={article.votes} />
         </article>
     )
 };
