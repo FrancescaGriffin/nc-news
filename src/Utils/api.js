@@ -14,24 +14,21 @@ export const getTopicsForHomepage = () => {
 };
 
 export const getAllArticles = (filterTopic) => {
-    console.log(filterTopic)
     return newsApi
             .get('/articles', {
                 params: { topic: filterTopic }
             })
             .then((response)=>{
-        console.log(response.data)
+        // console.log(response.data)
         return response.data
     }).catch((error)=>{
         console.log(error, "the error of get all articles")
     })
 };
 
-// export const getArticlesByTopic = (topic) => {
-//     return newsApi.get(`/articles?topic=${topic}`).then((response)=>{
-//         console.log(response.data.articles)
-//         return response.data.articles
-//     }).catch((error)=>{
-//         console.log(error, "the error of get all articles")
-//     })
-// };
+export const getArticleById = ( id ) => {
+    return newsApi.get(`/articles/${id}`).then((response)=>{
+        // console.log(response.data.article, "in api")
+        return response.data.article
+    })
+}
