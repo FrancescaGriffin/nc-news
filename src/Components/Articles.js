@@ -1,15 +1,21 @@
 import { useState, useEffect } from "react";
 import { getAllArticles } from "../Utils/api";
+import { useParams } from "react-router-dom";
+
 
 const Articles = () => {
 
     const [allArticles, setAllArticles] = useState([]);
+    const { topic } = useParams;
 
     useEffect(()=> {
-        getAllArticles().then(({articles})=>{
+        getAllArticles(topic).then(({articles})=>{
             setAllArticles(articles)
         })
-    }, [])
+        .catch((error)=> {
+            console.log(error)
+        })
+    }, []);
 
 
 

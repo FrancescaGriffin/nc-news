@@ -15,15 +15,9 @@ const NavBar = () => {
     return (
         <nav className="navbar">
             <ul>
-                <li key="homepage">All Articles</li>
+                <li key="homepage"><Link to={`/articles`}> All Articles </Link></li>
                 {topics.map(({slug})=>{
-                    return (
-                    <li key={slug}>
-                        {/* <Link> to={`/articles/${slug}`} */}
-                        <h4>{slug}</h4>
-                        {/* </Link> */}
-                    </li>
-                    )
+                    return <li key={slug}><Link to={`/articles/${slug}`}> {slug} </Link></li>
                 })}
             </ul>
         </nav>
