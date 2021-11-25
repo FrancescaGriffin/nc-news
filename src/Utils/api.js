@@ -41,10 +41,16 @@ export const getCommentsForArticle = (id) => {
 }
 
 export const votesForArticle = (id, newVote) => {
-    console.log(newVote, "<---------")
     return newsApi.patch(`/articles/${id}`, { inc_votes: newVote }).then((response)=>{
         console.log(response.data)
         return response.data
+    })
+};
+
+export const getAllUsers = () => {
+    return newsApi.get(`/users`).then((response)=>{
+        console.log(response)
+        return response.data.users
     })
 }
 

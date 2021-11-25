@@ -7,13 +7,13 @@
   grid-template-areas:'header' 'navbar' 'main';
 }
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .articles {
       display: grid;
       grid-template-columns: 50% 50%;
       grid-area: main;
   }
-}
+} */
 
 .header {
   border: solid orangered 1px;
@@ -53,6 +53,7 @@ ul {
   padding-left: 0;
   margin-top: 0;
 }
+
 
 
 

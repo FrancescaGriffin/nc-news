@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { getArticleById } from "../Utils/api";
 import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import NewVotes from "./NewVotes";
 
 const ArticleById = () => {
