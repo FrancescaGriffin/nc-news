@@ -13,16 +13,16 @@ export const getTopicsForHomepage = () => {
     })
 };
 
-export const getAllArticles = (filterTopic) => {
+export const getAllArticles = (filterTopic, sortby) => {
     return newsApi
             .get('/articles', {
-                params: { topic: filterTopic }
+                params: { topic: filterTopic, sort_by: sortby, },
             })
             .then((response)=>{
-        // console.log(response.data)
+        console.log(response.data, "<-- here")
         return response.data
     }).catch((error)=>{
-        console.log(error, "the error of get all articles")
+        console.dir(error, "the error of get all articles")
     })
 };
 
@@ -47,3 +47,4 @@ export const votesForArticle = (id, newVote) => {
         return response.data
     })
 }
+
