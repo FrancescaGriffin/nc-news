@@ -2,13 +2,12 @@ import { useContext, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 import { postNewComment } from "../Utils/api";
 
-const PostComment = ({id}) => {
+const PostComment = ({id, setImPosting}) => {
 
     const { user } = useContext(UserContext)
 
     const [showForm, setShowForm] = useState(false)
     const [showButton, setShowButton] = useState(true)
-    const [comment, setComment] = useState("")
     const [newComment, setNewComment] = useState({ username: '', body: ''})
 
     const postComment = (event) => {
@@ -31,14 +30,13 @@ const PostComment = ({id}) => {
         postNewComment(id, newComment)
         setShowForm(false)
         setShowButton(true)
+        setImPosting(true)
     };
     
-console.log(newComment)
     const commentForm = () => {
         return (
             <form onSubmit={handleSubmit} className="form">
                     <label>
-                         Comment: 
                         <input
                             type="text"
                             name="new comment"

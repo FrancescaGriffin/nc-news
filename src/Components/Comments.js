@@ -2,6 +2,7 @@ import { useParams, Link  } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCommentsForArticle } from "../Utils/api";
 import PostComment from "./PostComment";
+import DeleteComment from "./DeleteComment";
 
 
 const Comments = () => {
@@ -11,22 +12,25 @@ const Comments = () => {
     const { topic, id } = useParams();
 
     const [isLoading, setIsLoading] = useState(true);
+    const [imPosting, setImPosting] = useState();
 
     useEffect(()=>{
         setIsLoading(true)
         getCommentsForArticle(id).then((comments)=>{
-            // console.log(comments)
+            // console.log(comments) 
             setComments(comments)
-            setIsLoading(false)
+            setIsLoading((posting)=>{
+                setImPosting(!posting)
+            })
         }).catch((error)=>{
             console.log(error)
         })
-    }, [])
+    }, [imPosting])
 
     if(isLoading) return <p>Loading...</p>
     return (
         <div className="comments">
-            <PostComment id={id}/>
+            <PostComment id={id} setImPosting={setImPosting}/>
             <ul>
                 {comments.map((comment)=>{
                     return (
@@ -36,6 +40,7 @@ const Comments = () => {
                             <p>{comment.body}</p>
                             <p>Date written: {comment.created_at}</p>
                             <p>Votes: {comment.votes}</p>
+                            <DeleteComment author={comment.author} commentId={comment.comment_id}/>
                         </li>
                         
                     )
