@@ -13,10 +13,10 @@ export const getTopicsForHomepage = () => {
     })
 };
 
-export const getAllArticles = (filterTopic, sortby) => {
+export const getAllArticles = (filterTopic, sortby, orderby) => {
     return newsApi
             .get('/articles', {
-                params: { topic: filterTopic, sort_by: sortby, },
+                params: { topic: filterTopic, sort_by: sortby, order: orderby},
             })
             .then((response)=>{
         console.log(response.data, "<-- here")
