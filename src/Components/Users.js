@@ -9,7 +9,6 @@ const Users = () => {
 
     useEffect(()=>{
         getAllUsers().then((users)=>{
-            console.log(users)
             setAllUsers(users)
         })
     }, [])

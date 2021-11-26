@@ -31,26 +31,32 @@ export const getArticleById = ( id ) => {
         // console.log(response.data.article, "in api")
         return response.data.article
     })
-}
+};
 
 export const getCommentsForArticle = (id) => {
     return newsApi.get(`/articles/${id}/comments`).then((response)=>{
         // console.log(response.data.comments)
         return response.data.comments
     })
-}
+};
 
 export const votesForArticle = (id, newVote) => {
     return newsApi.patch(`/articles/${id}`, { inc_votes: newVote }).then((response)=>{
-        console.log(response.data)
+        // console.log(response.data)
         return response.data
     })
 };
 
 export const getAllUsers = () => {
     return newsApi.get(`/users`).then((response)=>{
-        console.log(response)
+        // console.log(response)
         return response.data.users
     })
-}
+};
 
+export const postNewComment = (id, newComment) => {
+    return newsApi.post(`/articles/${id}/comments`, newComment).then((response)=>{
+        console.log(response.data.newComment)
+        return response.data.newComment
+    })
+}

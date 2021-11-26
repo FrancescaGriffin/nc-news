@@ -7,8 +7,6 @@ export const UserProvider = ({children}) => {
 
     const [user, setUser] = useState({})
 
-    console.log(user)
-
     const isLoggedIn = !!user.username 
 
     const logOut = () => {

@@ -1,6 +1,7 @@
 import { useParams, Link  } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getCommentsForArticle } from "../Utils/api";
+import PostComment from "./PostComment";
 
 
 const Comments = () => {
@@ -25,6 +26,7 @@ const Comments = () => {
     if(isLoading) return <p>Loading...</p>
     return (
         <div className="comments">
+            <PostComment id={id}/>
             <ul>
                 {comments.map((comment)=>{
                     return (

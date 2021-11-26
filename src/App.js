@@ -7,18 +7,12 @@ import NavBar from './Components/Nav';
 import Articles from './Components/Articles';
 import ArticleById from './Components/Article_by_id';
 import Comments from './Components/Comments';
-import Users from './Components/Users'
 
-import { useContext } from "react";
-import { UserContext } from './Context/UserContext'
 import AreYouLoggedIn from './Components/LoginDirector';
 
 function App() {
 
   const [sortBy, setSortBy] = useState("created_at");
-
-  const { isLoggedIn } = useContext(UserContext);
-  console.log(isLoggedIn, "app")
 
   return (
     <BrowserRouter>
