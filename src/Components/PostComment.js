@@ -6,7 +6,7 @@ const PostComment = ({id, addComment}) => {
 
     const { user } = useContext(UserContext)
 
-    const [showForm, setShowForm] = useState(false)
+    // const [showForm, setShowForm] = useState(false)
     const [showButton, setShowButton] = useState(true)
     const [newComment, setNewComment] = useState({ username: '', body: ''})
 
@@ -21,7 +21,7 @@ const PostComment = ({id, addComment}) => {
     };
 
     const handleClick = () => {
-        setShowForm(true)
+        // setShowForm(true)
         setShowButton(false)
     };
 
