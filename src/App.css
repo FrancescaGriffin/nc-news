@@ -7,13 +7,13 @@
   grid-template-areas:'header' 'navbar' 'main';
 }
 
-/* @media screen and (min-width: 600px) {
-  .articles {
+@media screen and (min-width: 600px) {
+  .articles ul {
       display: grid;
       grid-template-columns: 50% 50%;
       grid-area: main;
   }
-} */
+}
 
 .header {
   border: solid orangered 1px;

@@ -12,25 +12,28 @@ const Comments = () => {
     const { topic, id } = useParams();
 
     const [isLoading, setIsLoading] = useState(true);
-    const [imPosting, setImPosting] = useState();
+
+    const addComment = (comment) => {
+        setComments((prevState)=>{
+            return [comment, ...prevState]
+        })
+    }
 
     useEffect(()=>{
         setIsLoading(true)
         getCommentsForArticle(id).then((comments)=>{
             // console.log(comments) 
             setComments(comments)
-            setIsLoading((posting)=>{
-                setImPosting(!posting)
-            })
+            setIsLoading(false)
         }).catch((error)=>{
             console.log(error)
         })
-    }, [imPosting])
+    }, [])
 
     if(isLoading) return <p>Loading...</p>
     return (
         <div className="comments">
-            <PostComment id={id} setImPosting={setImPosting}/>
+            <PostComment id={id} addComment={addComment}/>
             <ul>
                 {comments.map((comment)=>{
                     return (

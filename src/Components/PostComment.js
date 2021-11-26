@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../Context/UserContext";
 import { postNewComment } from "../Utils/api";
 
-const PostComment = ({id, setImPosting}) => {
+const PostComment = ({id, addComment}) => {
 
     const { user } = useContext(UserContext)
 
@@ -10,7 +10,7 @@ const PostComment = ({id, setImPosting}) => {
     const [showButton, setShowButton] = useState(true)
     const [newComment, setNewComment] = useState({ username: '', body: ''})
 
-    const postComment = (event) => {
+    const updateComment = (event) => {
         const { value } = event.target
         setNewComment(()=>{
             return {
@@ -27,13 +27,14 @@ const PostComment = ({id, setImPosting}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        postNewComment(id, newComment)
-        setShowForm(false)
+        postNewComment(id, newComment).then((newComment) =>{
+            addComment(newComment)
+        })
         setShowButton(true)
-        setImPosting(true)
+       
     };
     
-    const commentForm = () => {
+    const CommentForm = () => {
         return (
             <form onSubmit={handleSubmit} className="form">
                     <label>
@@ -41,7 +42,7 @@ const PostComment = ({id, setImPosting}) => {
                             type="text"
                             name="new comment"
                             id="new comment"
-                            onChange={postComment}
+                            onChange={updateComment}
                             value={newComment.body}
                             required
                              />
@@ -51,13 +52,15 @@ const PostComment = ({id, setImPosting}) => {
         )
     }
 
-    return (
-        <div>
-        {!!showButton && <button onClick={()=>handleClick()} id="comment button">Post Comment</button>}
-        {!!showForm && commentForm()}
-        
-        </div>
+    return ( showButton ? ( 
+    <div>
+        <button onClick={()=>handleClick()} id="comment button">
+            Post Comment
+        </button>
+    </div> 
+    ) : (
+        <CommentForm />
     )
-};
+    )};
 
 export default PostComment;
