@@ -8,13 +8,18 @@ const NavBar = ({setSortBy}) => {
     const { isLoggedIn, user } = useContext(UserContext);
     
     const [topics, setTopics] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
 
     useEffect(()=>{
+        setIsLoading(true)
         getTopicsForHomepage().then((topic)=>{
             setTopics(topic)
+            setIsLoading(false)
         })
     }, [])
-
+    
+    if(isLoading) return <p>Loading...</p>
     return (
         <nav className="navbar">
             {isLoggedIn ? <p>Hello {user.username}!</p> : <p>Please login!</p>}

@@ -6,7 +6,6 @@ const PostComment = ({id, addComment}) => {
 
     const { user } = useContext(UserContext)
 
-    // const [showForm, setShowForm] = useState(false)
     const [showButton, setShowButton] = useState(true)
     const [newComment, setNewComment] = useState({ username: '', body: ''})
 
@@ -21,7 +20,6 @@ const PostComment = ({id, addComment}) => {
     };
 
     const handleClick = () => {
-        // setShowForm(true)
         setShowButton(false)
     };
 
@@ -34,7 +32,7 @@ const PostComment = ({id, addComment}) => {
        
     };
     
-    const CommentForm = () => {
+    const commentForm = () => {
         return (
             <form onSubmit={handleSubmit} className="form">
                     <label>
@@ -49,18 +47,19 @@ const PostComment = ({id, addComment}) => {
                     </label>
                 <button type="submit">Submit Comment</button>
         </form>
-        )
-    }
+        );
+    };
 
-    return ( showButton ? ( 
+    return showButton ? ( 
     <div>
+        {" "}
         <button onClick={()=>handleClick()} id="comment button">
             Post Comment
         </button>
     </div> 
     ) : (
-        <CommentForm />
+        commentForm()
     )
-    )};
+};
 
 export default PostComment;
