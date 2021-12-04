@@ -1,7 +1,16 @@
+import { UserContext } from '../Context/UserContext';
+import { useContext } from "react";
+
 const Header = () => {
+
+const { isLoggedIn, user } = useContext(UserContext);
+
+console.log(user)
     return (
+        
         <header className="header">
-            <h1> The Everyday Journalist </h1>
+            <h1> THE EVERYDAY JOURNALIST</h1>
+            {isLoggedIn ? <p>Hello {user.username}</p> : <p></p>}
         </header>
     )
 }

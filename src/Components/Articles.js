@@ -31,7 +31,7 @@ const Articles = ({sortBy, setSortBy}) => {
             {allArticles.map((article)=>{
                 return (
                     <li key={article.article_id} className="singlearticle">
-                        <p>{article.article_id}</p>
+                        {/* <p>{article.article_id}</p> */}
                         <h3><Link to={`/articles/${article.topic}/${article.article_id}`}>{article.title} </Link></h3>
                         <p>Author: {article.author}</p>
                         <p>Topic: {article.topic}</p>

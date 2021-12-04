@@ -38,9 +38,9 @@ const Comments = () => {
                 {comments.map((comment)=>{
                     return (
                         <li key={comment.comment_id} className="singlecomment">
-                            <p>{comment.comment_id}</p>
-                            <p>Author: {comment.author}</p>
+                            {/* <p>{comment.comment_id}</p> */}
                             <p>{comment.body}</p>
+                            <p>Author: {comment.author}</p>
                             <p>Date written: {comment.created_at}</p>
                             <p>Votes: {comment.votes}</p>
                             <DeleteComment author={comment.author} commentId={comment.comment_id}/>

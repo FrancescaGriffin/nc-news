@@ -27,8 +27,8 @@ const ArticleById = () => {
     return (
         <article className="articleByID">
             <ul>
-                <li>{article.article_id}</li>
-                <li>{article.title}</li>
+                {/* <li>{article.article_id}</li> */}
+                <li><h2>{article.title}</h2></li>
                 <li>Author: {article.author}</li>
                 <li>Topic:{article.topic}</li>
                 <li>{article.body}</li>

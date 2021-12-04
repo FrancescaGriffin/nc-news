@@ -5,7 +5,7 @@ import { UserContext } from '../Context/UserContext'
 
 const NavBar = ({setSortBy}) => {
     
-    const { isLoggedIn, user } = useContext(UserContext);
+    const { user } = useContext(UserContext);
     
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -18,15 +18,14 @@ const NavBar = ({setSortBy}) => {
             setIsLoading(false)
         })
     }, [])
-    
+    console.log(user)
     if(isLoading) return <p>Loading...</p>
     return (
         <nav className="navbar">
-            {isLoggedIn ? <p>Hello {user.username}!</p> : <p>Please login!</p>}
             <ul>
-                <li key="homepage"><Link to={`/articles`}> All Articles </Link></li>
+                <li key="homepage"><Link to={`/articles`} className="nav"> All articles </Link></li>
                 {topics.map(({slug})=>{
-                    return <li key={slug}><Link to={`/articles/${slug}`} onClick={()=>setSortBy("created_at")}> {slug} </Link></li>
+                    return <li key={slug}><Link to={`/articles/${slug}`} className="nav" onClick={()=>setSortBy("created_at")}> {slug} </Link></li>
                 })}
             </ul>
         </nav>
