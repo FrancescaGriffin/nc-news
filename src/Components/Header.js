@@ -5,12 +5,11 @@ const Header = () => {
 
 const { isLoggedIn, user } = useContext(UserContext);
 
-console.log(user)
     return (
         
         <header className="header">
             <h1> THE EVERYDAY JOURNALIST</h1>
-            {isLoggedIn ? <p>Hello {user.username}</p> : <p></p>}
+            {/* {isLoggedIn ? <p>Hello {user.username}</p> : <p></p>} */}
         </header>
     )
 }

@@ -18,7 +18,7 @@ const NavBar = ({setSortBy}) => {
             setIsLoading(false)
         })
     }, [])
-    console.log(user)
+    
     if(isLoading) return <p>Loading...</p>
     return (
         <nav className="navbar">

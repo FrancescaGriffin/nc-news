@@ -19,9 +19,8 @@ const Users = () => {
             <ul>
                 {allUsers.map((user)=>{
                     return (
-                    <li key={user.username} className="Users">{user.username}
-                    <br />
-                    <button onClick={()=>{setUser(user)}}>Login</button> 
+                    <li key={user.username} className="Users">
+                    <button onClick={()=>{setUser(user)}}>{user.username}</button> 
                     </li>
                     
                     )

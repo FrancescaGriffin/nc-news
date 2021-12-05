@@ -19,7 +19,7 @@ export const getAllArticles = (filterTopic, sortby, orderby) => {
                 params: { topic: filterTopic, sort_by: sortby, order: orderby},
             })
             .then((response)=>{
-        console.log(response.data, "<-- here")
+        // console.log(response.data, "<-- here")
         return response.data
     }).catch((error)=>{
         console.dir(error, "the error of get all articles")
