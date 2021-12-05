@@ -11,8 +11,9 @@ const NewVotes = ({id , articleVotes}) => {
     const handleClick = (number) => {
         if(number === 1) {
             setLikeDisabled(true)
-        } 
+        } else {
         setDislikeDisabled(true)
+        }
         setUserVote((currentNum)=>currentNum + number);
         votesForArticle(id, number).catch((error)=>{console.dir(error)})
     };
