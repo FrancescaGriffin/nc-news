@@ -33,11 +33,11 @@ const Articles = ({sortBy, setSortBy}) => {
                     <li key={article.article_id} className="singlearticle">
                         {/* <p>{article.article_id}</p> */}
                         <h3><Link to={`/articles/${article.topic}/${article.article_id}`}>{article.title} </Link></h3>
-                        <p>Author: {article.author}</p>
-                        <p>Topic: {article.topic}</p>
-                        <p>Date submitted: {article.created_at}</p>
-                        <p>Votes: {article.votes}</p>
-                        <p>Comments: {article.comment_count}</p>
+                        <p className="author">Author: {article.author}</p>
+                        <p className="topic">Topic: {article.topic}</p>
+                        <p className="createdAt">Date submitted: {article.created_at}</p>
+                        <p className="votes">Votes: {article.votes}</p>
+                        <p className="commentCounts">Comments: {article.comment_count}</p>
                     </li>
                     )
                 })}
